@@ -6,10 +6,13 @@ namespace VendingMachine
     class Program
     {
 
+        #region Fields
         static Dictionary<int, double> validProducts = new Dictionary<int, double>();
         static double enteredCoins = 0;
         static List<double> validCoins = new List<double>() { 0.05, 0.1, 0.25 };
-        static List<double> enteredCoinsList = new List<double>();
+        static List<double> enteredCoinsList = new List<double>(); 
+        #endregion
+
 
         static void Main(string[] args)
         {
@@ -17,6 +20,11 @@ namespace VendingMachine
             SaleProduct();
             Console.ReadLine();
         }
+
+        #region Methods
+        /// <summary>
+        /// SaleProduct method to sale the products.
+        /// </summary>
         public static void SaleProduct()
         {
             validProducts.Add(1, 1);
@@ -54,16 +62,17 @@ namespace VendingMachine
             {
                 throw;
             }
-
         }
 
-
+        /// <summary>
+        /// ReceiveCoins method to accept coins from the user.
+        /// </summary>
         public static void ReceiveCoins()
         {
             Console.WriteLine("Please enter your coin: y/N");
             string str = Console.ReadLine();
-            
-            while(str == "y")
+
+            while (str == "y")
             {
                 Console.WriteLine("Enter your coin:");
                 double coin = double.Parse(Console.ReadLine());
@@ -80,6 +89,7 @@ namespace VendingMachine
                 Console.WriteLine("Please enter your coin: y/N");
                 str = Console.ReadLine();
             }
-        }
+        } 
+        #endregion
     }
 }
